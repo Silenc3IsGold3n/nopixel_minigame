@@ -25,8 +25,8 @@ class NoPixel_Fleeca{
         {'type': 'shape','text': 'SHAPE'},
         {'type': 'shape_color','text': 'SHAPE COLOR'},
         // Inner shape
-        {'type': 'inner_shape','text': 'INNER SHAPE'},
-        {'type': 'inner_shape_color','text': 'INNER SHAPE COLOR'},
+        //{'type': 'inner_shape','text': 'INNER SHAPE'},
+        //{'type': 'inner_shape_color','text': 'INNER SHAPE COLOR'},
         // Upper text - Color
         {'type': 'text_color','text': 'TEXT COLOR'},
         {'type': 'text_color_bg_color','text': 'COLOR TEXT BACKGROUND COLOR'},
@@ -313,7 +313,7 @@ let start = () => {
         g.querySelector('.text_color').innerHTML = group.text_color;
         g.querySelector('.text_shape').classList.add('txt_'+group.text_shape_bg_color);
         g.querySelector('.text_shape').innerHTML = group.text_shape;
-        g.querySelector('.inner_shape').classList.add(group.inner_shape, 'bg_'+group.inner_shape_color);
+        //g.querySelector('.inner_shape').classList.add(group.inner_shape, 'bg_'+group.inner_shape_color);
         g.querySelector('.number').classList.add('txt_'+group.number_color);
         g.querySelector('.number').innerHTML = group.impostor_number;
     });
