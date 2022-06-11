@@ -38,10 +38,10 @@ class NoPixel_Fleeca{
     create(){
         let real_numbers, impostor_numbers, minigame, group, background_colors, text_colors, types, quiz_numbers;
 
-        real_numbers = this.range(1, 5);
+        real_numbers = this.range(1, 6);
         this.shuffle(real_numbers);
 
-        impostor_numbers = this.range(1, 5);
+        impostor_numbers = this.range(1, 6);
         this.shuffle(impostor_numbers);
 
         minigame = {
@@ -50,7 +50,7 @@ class NoPixel_Fleeca{
             'groups': []
         };
 
-        for(let i = 0; i < 5; i++){
+        for(let i = 0; i < 6; i++){
             group = [];
 
             background_colors = [...this.colors];
@@ -80,7 +80,7 @@ class NoPixel_Fleeca{
             minigame['groups'].push(group);
         }
 
-        quiz_numbers = this.range(0, 4);
+        quiz_numbers = this.range(0, 5);
         this.shuffle(quiz_numbers);
 
         types = [...this.types];
@@ -88,8 +88,10 @@ class NoPixel_Fleeca{
 
         let solution1 = minigame['groups'][quiz_numbers[0]][types[0]['type']];
         let solution2 = minigame['groups'][quiz_numbers[1]][types[1]['type']];
+        let solution3 = minigame['groups'][quiz_numbers[2]][types[2]['type']];
         solution1 = solution1.replace(/\d/,'');
         solution2 = solution2.replace(/\d/,'');
+        solution3 = solution3.replace(/\d/,'');
 
         minigame['quiz1'] = {
             'pos': quiz_numbers[0],
@@ -103,7 +105,13 @@ class NoPixel_Fleeca{
             'solution': solution2
         };
 
-        minigame['solution'] = solution1 +' '+ solution2;
+        minigame['quiz3'] = {
+            'pos': quiz_numbers[2],
+            'type': types[2],
+            'solution': solution3
+        };
+
+        minigame['solution'] = solution1 +' '+ solution2 + ' '+ solution3;
 
         return minigame;
     }
@@ -318,6 +326,7 @@ let start = () => {
 
     document.querySelector('.quiz1').innerHTML = data.quiz1.type.text + ' ('+data['real_numbers'][data.quiz1.pos]+')';
     document.querySelector('.quiz2').innerHTML = data.quiz2.type.text + ' ('+data['real_numbers'][data.quiz2.pos]+')';
+    document.querySelector('.quiz3').innerHTML = data.quiz3.type.text + ' ('+data['real_numbers'][data.quiz3.pos]+')';
 
     document.querySelector('.solution .real_numbers').innerHTML = data.real_numbers.join(' ');
     document.querySelector('.solution .solution_text').innerHTML = data.solution;
