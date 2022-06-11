@@ -334,7 +334,7 @@ let start = () => {
     document.querySelector('.streak').innerHTML = streak;
     document.querySelector('.max_streak').innerHTML = max_streak;
 
-    timer_start = sleep(1000, function(){
+    timer_start = sleep(2000, function(){
         document.querySelectorAll('.real_number').forEach(el => {el.style.fontSize = '0px';});
 
         timer_numbers = sleep(2000, function(){
